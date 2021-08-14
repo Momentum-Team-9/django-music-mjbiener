@@ -1,1 +1,45 @@
-<h1>Album Details.....</h1>
+{% extends "base.html" %}
+
+{% block content %}
+
+<header class="header">
+    <h1>DJANGO MUSIC COLLECTION</h1>
+</header>
+<br>
+<div class="topnav">
+    <h2>
+    <a href="/">Home</a>
+    <a href="/">Albums</a>
+    
+    </h2>
+</div>
+<div class="add">
+<h3>
+    <a href="/albums/new"class="button">Add Album</a>
+    
+</h3>
+</div>
+<br>
+<div class="albums"><h2>Album Details</h2>
+    <br>
+    <ul id= "album-list">
+        <img src="{{ album.album_photo }}" alt="{{album.title}}"><br>
+            Album Title: {{ album.title }}<br>
+            Artist: {{album.artist}}<br>
+        {% if album.release_year %}
+            Released: {{ album.release_year }}
+        {% endif %}
+        
+        <h4>Tracks</h4>
+        {% for track in album.tracks.all %}
+            <li>{{track.name}}</li>
+        {% endfor %}
+        
+        <br><br>
+        <a href="{% url 'edit_album' pk=album.pk%}" class="button">Edit Album</a>
+        <a href="{% url 'delete_album' pk=album.pk%}" class="button">Delete Album</a><br><br>
+        
+    </ul>    
+</div>
+
+{% endblock %}

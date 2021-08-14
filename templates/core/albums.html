@@ -23,16 +23,15 @@
     <div class="albums"><h2>YOUR ALBUMS</h2>
         <ul id= "album-list">
             {% for album in albums %}
-                <li>
-                    <a href="{% url 'album_details' album.pk %}"><img src="{{ album.album_photo }}" alt="{{album.title}}"></a><br>
-                    <a href="{% url 'album_details' album.pk %}">{{album.title}}</a><br>
-                    <p>Artist: {{album.artist}}</p>
-                    <a href="{% url 'edit_album' pk=album.pk%}" class="button">Edit Album</a>
-                    <a href="{% url 'delete_album' pk=album.pk%}" class="button">Delete Album</a>
+                
+                <a href="{% url 'album_details' album.pk %}"><img src="{{ album.album_photo }}" alt="{{album.title}}"></a><br>
+                <a href="{% url 'album_details' album.pk %}">{{album.title}}</a><br>
+                <p>Artist: {{album.artist}}</p>
+                <a href="{% url 'edit_album' pk=album.pk%}" class="button">Edit Album</a>
+                <a href="{% url 'delete_album' pk=album.pk%}" class="button">Delete Album</a>
                 <br>
                 <br>
                 </br>
-                </li> 
             {% endfor %}
             </ul>
         
