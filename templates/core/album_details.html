@@ -15,7 +15,8 @@
 </div>
 <div class="add">
 <h3>
-    <a href="/albums/new"class="button">Add Album</a>
+    <a href="{% url 'add_album' %}"class="button">Add Album</a>
+    <a href="{% url 'edit_album' pk=album.pk %}" class="button">Edit Album</a>
     
 </h3>
 </div>
@@ -24,8 +25,8 @@
     <br>
     <ul id= "album-list">
         <img src="{{ album.album_photo }}" alt="{{album.title}}"><br>
-            Album Title: {{ album.title }}<br>
-            Artist: {{album.artist}}<br>
+        Album Title: {{ album.title }}<br>
+        Artist: {{album.artist}}<br>
         {% if album.release_year %}
             Released: {{ album.release_year }}
         {% endif %}
