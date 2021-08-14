@@ -11,7 +11,7 @@ def album_list(request):
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    return render(request, 'core/album_detail.html', {'album': album})
+    return render(request, 'core/album_details.html', {'album': album})
 
 
 def add_album(request):
