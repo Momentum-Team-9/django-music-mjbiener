@@ -2,6 +2,14 @@
 
 {% block content %}
 
-DELETED ALBUM
-
+<div>
+    <form action="{% url 'delete_album' pk=album.pk %}" method="POST">
+      {% csrf_token %}
+      <p>Are you sure you want to delete {{ Album.name }}?</p>
+      <div>
+        <button type="submit">Delete Album</button><br />
+        <a href="{% url 'albums' %}">Cancel</a>
+      </div>
+    </form>
+  </div>
 {% endblock %}
