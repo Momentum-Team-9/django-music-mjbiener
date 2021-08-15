@@ -25,17 +25,19 @@
     <br>
     <ul id= "album-list">
         <img src="{{ album.album_photo }}" alt="{{album.title}}"><br>
-        Album Title: {{ album.title }}<br>
-        Artist: {{album.artist}}<br>
+        
+        Album Name: {{album.title}}<br>
+        Artist: {{album.artist}} </br>
         {% if album.release_year %}
             Released: {{ album.release_year }}
         {% endif %}
         
         <h4>Tracks</h4>
+        <ol type="1" id="track-list">
         {% for track in album.tracks.all %}
             <li>{{track.name}}</li>
         {% endfor %}
-        
+        </ol>
         <br><br>
         <a href="{% url 'edit_album' pk=album.pk%}" class="button">Edit Album</a>
         <a href="{% url 'delete_album' pk=album.pk%}" class="button">Delete Album</a><br><br>

@@ -25,10 +25,14 @@
             {% for album in albums %}
                 
                 <a href="{% url 'album_details' album.pk %}"><img src="{{ album.album_photo }}" alt="{{album.title}}"></a><br>
-                <a href="{% url 'album_details' album.pk %}">{{album.title}}</a><br>
-                <p>Artist: {{album.artist}}</p>
-                <a href="{% url 'edit_album' pk=album.pk%}" class="button">Edit Album</a>
-                <a href="{% url 'delete_album' pk=album.pk%}" class="button">Delete Album</a>
+                Album Name: <a href="{% url 'album_details' album.pk %}">{{album.title}}</a><br>
+                Artist: {{album.artist}}
+                </br>
+                Album Added: {{album.created_at}}
+                </br>
+                </br>
+                <a href="{% url 'edit_album' pk=album.pk%}" class="button">Edit Album </a>
+                <a href="{% url 'delete_album' pk=album.pk%}" class="button"> Delete Album</a>
                 <br>
                 <br>
                 </br>
