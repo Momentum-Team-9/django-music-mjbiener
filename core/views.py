@@ -2,6 +2,7 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album, Track
+from .forms import AlbumForm
 
 
 def album_list(request):
@@ -15,16 +16,26 @@ def album_detail(request, pk):
 
 
 def add_album(request):
-    # BASIC VIEW FUNCTION TO MAKE SURE URLS/HTML WORKING
-    # NEED TO ADD NEW ALBUM FORM TO FORMS AND UPDATE VIEW
-    return render(request, "core/new_album.html")
+    if request.method == 'GET':
+        form = AlbumForm()
+    else:
+        form = AlbumForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='albums')
+    return render(request, "core/new_album.html", {'form': form})
 
 
 def edit_album(request, pk):
-    # BASIC VIEW FUNCTION TO MAKE SURE URLS/HTML WORKING
-    # NEED TO ADD EDIT ALBUM FORM TO FORMS AND UPDATE VIEW
     album = get_object_or_404(Album, pk=pk)
-    return render(request, 'core/edit_album.html', {'album': album})
+    if request.method =='GET':
+        form = AlbumForm(instance=album)
+    else:
+        form = AlbumForm(data=request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect(to='albums')
+    return render(request, 'core/edit_album.html', {'form': form, 'album': album})
 
 
 def delete_album(request, pk):

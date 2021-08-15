@@ -2,6 +2,16 @@
 
 {% block content %}
 
-EDIT ALBUM PAGE / FORM....
+<h1>Edit Album</h1>
+
+<div>
+  <form action="{% url 'edit_album' pk=album.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+      <button type="submit">Update Album</button>
+    </div>
+  </form>
+</div>
 
 {% endblock %}
