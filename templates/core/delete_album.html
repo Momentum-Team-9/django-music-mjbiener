@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div>
+<div class="form">
     <form action="{% url 'delete_album' pk=album.pk %}" method="POST">
       {% csrf_token %}
       <p>Are you sure you want to delete {{ album.title }}?</p>

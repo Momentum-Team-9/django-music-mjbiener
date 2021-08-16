@@ -4,7 +4,7 @@
 
 <h1>Edit Album</h1>
 
-<div>
+<div class="form">
   <form action="{% url 'edit_album' pk=album.pk %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}

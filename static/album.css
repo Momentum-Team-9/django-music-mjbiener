@@ -17,7 +17,7 @@ h1 {
     font-weight: bold;  
     /* text-align: left; */
     overflow: hidden;
-    background-color:  rgb(89, 102, 123);
+    background-color:  rgb(49, 78, 126);
     position: fixed;
     top: 0;
     width: 100%;
@@ -49,11 +49,14 @@ h3 {
     justify-content: space-evenly;    
 }
 
+.form {
+    margin-top: 150px;
+}
 .button {
     
     width: 2rem;
     height: 1rem;
-    background: #000000;
+    background-color:  rgb(49, 78, 126);
     padding: 3px;
     text-align: center;
     border-radius: 5px;
